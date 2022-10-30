@@ -58,7 +58,7 @@ public class CustomerController {
         return new ResponseEntity<>(responsed, response);
     }
 
-    @DeleteMapping("/delete")
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<String> delete(@PathVariable(name = "id") String id){
         HttpStatus response = HttpStatus.OK;
         String msg="success";
@@ -88,7 +88,7 @@ public class CustomerController {
 
             Customer responed = customerService.findById(customer.getId());
             if(PasswordHashing.decrypt(responed.getPassword()).equals(customer.getCurrentPassword())){
-                responed.setPassword(PasswordHashing.encrypt(customer.getCurrentPassword()));
+                responed.setPassword(PasswordHashing.encrypt(customer.getNewPassword()));
                 customerService.register(responed);
                 msg="success";
                 response = HttpStatus.ACCEPTED;

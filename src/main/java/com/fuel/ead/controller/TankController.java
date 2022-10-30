@@ -50,7 +50,7 @@ public class TankController {
         return new ResponseEntity<>(tankService.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/findAllByShed")
+    @GetMapping("/findAllByShed/{id}")
     public ResponseEntity<List<Tank>> findAllByShed(@PathVariable(name = "id") String shed){
         return new ResponseEntity<>(tankService.findAllByShedId(shed),HttpStatus.OK);
     }

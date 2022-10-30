@@ -49,7 +49,7 @@ public class ShedController {
         return new ResponseEntity<>(shedService.findAll(),HttpStatus.OK);
     }
 
-    @GetMapping("/findAllByMaster")
+    @GetMapping("/findAllByMaster/{id}")
     public ResponseEntity<List<Shed>> findAllByShedMaster(@PathVariable(name = "id") String id){
         return new ResponseEntity<>(shedService.findAllByShedMaster(id),HttpStatus.OK);
     }

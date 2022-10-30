@@ -77,7 +77,7 @@ public class ShedMasterController {
 
             ShedMaster responed = shedMasterService.findById(dto.getId());
             if(PasswordHashing.decrypt(responed.getPassword()).equals(dto.getCurrentPassword())){
-                responed.setPassword(PasswordHashing.encrypt(dto.getCurrentPassword()));
+                responed.setPassword(PasswordHashing.encrypt(dto.getNewPassword()));
                 shedMasterService.register(responed);
                 msg="success";
                 response = HttpStatus.ACCEPTED;
