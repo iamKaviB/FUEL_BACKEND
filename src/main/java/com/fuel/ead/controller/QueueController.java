@@ -76,7 +76,7 @@ public class QueueController {
         return new ResponseEntity<>(retrieved,response);
     }
 
-    @GetMapping("/count")
+    @PostMapping("/count")
     public ResponseEntity<QueueCount> count(@RequestBody QueueDto dto){
         HttpStatus response = HttpStatus.BAD_REQUEST;
         QueueCount count = new QueueCount();
