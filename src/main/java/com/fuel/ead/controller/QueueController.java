@@ -88,6 +88,7 @@ public class QueueController {
 
         }else{
             retrieved = queueService.findTime(dto.getTank(),dto.getStatus());
+            count.setId(dto.getId());
             count.setCount(retrieved.size());
             count.setStatus(dto.getStatus());
             count.setTime(retrieved.get(0).getTime());
